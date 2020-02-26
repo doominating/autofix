@@ -4,13 +4,13 @@
   "private": true,
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --allow-empty"
     }
   },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "git add"
+      "cross-env CI-true yarn test --bail --findRelatedTests"
     ]
   },
   "dependencies": {
@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8"
